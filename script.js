@@ -18,7 +18,7 @@ class Calculator {
     }
 
     delete() {
-
+        this.currentOperand = this.currentOperand.toString(0, -1);
     }
 
     appendNumber(number) {
@@ -54,9 +54,24 @@ class Calculator {
             case 'x/y':
                 computation = +(prev / curr).toFixed(1);
                 break;
+            case '+':
+                computation = prev + curr;
+                break;
+            case '-':
+                computation = prev - curr;
+                break;
+            case '&times;':
+                computation = prev * curr;
+                break;
+            case '&divide;':
+                computation = prev / curr;
+                break;  
             default:
                 return;
         }
+        this.currentOperand = computation;
+        operationButtons = undefined;
+        this.previousOperand = '';
     }
 
     updateDisplay() {
@@ -96,3 +111,21 @@ equalsButton.addEventListener('click', () => {
     calculator.compute();
     calculator.updateDisplay();
 })
+
+allClearButton.addEventListener('click', () => {
+    calculator.allClear();
+    calculator.updateDisplay();
+})
+
+clearButton.addEventListener('click', () => {
+    calculator.clear();
+    calculator.updateDisplay();
+})
+
+deleteButton.addEventListener('click', () => {
+    calculator.delete();
+    calculator.updateDisplay();
+})
+
+
+
