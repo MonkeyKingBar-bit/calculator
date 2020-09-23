@@ -1,6 +1,7 @@
 html {
     font-size: 62.5%;
     box-sizing: border-box;
+    
   }
 
   *,
@@ -13,6 +14,8 @@ html {
 
 .wrapper {
     margin-top: 312px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
   .calculator {
@@ -52,8 +55,4 @@ html {
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
     padding: 20px;
-  }
-
-  .all-clear {
-    width: 110px;
   }
