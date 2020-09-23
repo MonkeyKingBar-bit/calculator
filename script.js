@@ -1,0 +1,1 @@
+const numberButtons = document.querySelectorAll('[btn btn-light waves-effect]');
