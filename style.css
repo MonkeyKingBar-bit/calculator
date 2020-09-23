@@ -44,11 +44,6 @@ html {
     font-size: 2rem!important;
   }
 
-  .equal-sign {
-    height: 98%;
-    grid-area: 2 / 4 / 6 / 5;
-  }
-
   .calculator-keys {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
