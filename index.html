@@ -1,56 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script> 
+    <script src="script.js" defer></script>
     <!--Bootstrap CSS-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>Calculator</title>
 </head>
+
 <body>
     <main>
-        <div class="wrapper">
-            <div class="calculator card col-lg-4 col-md-6 col-xs-6">
+        <div class="wrapper col-lg-4 col-md-6 col-xs-6">
+            <div class="calculator card">
 
-                    <input type="text" class="calculator-screen z-depth-1" value="" disabled />
-                
-                    <div class="calculator-keys">
-                      
-                      <button type="button" class="all-clear function btn-danger btn-sm" value="all-clear">AC</button>
-                      <button type="button" class="delete sign btn-danger" value="delete">DEL</button>
-                
-                      <button type="button" class="operator btn btn-info" value="+">+</button>
-                      <button type="button" class="operator btn btn-info" value="-">-</button>
-                      <button type="button" class="operator btn btn-info" value="*">&times;</button>
-                      <button type="button" class="operator btn btn-info" value="/">&divide;</button>
-                
-                      <button type="button" value="7" class="btn btn-light waves-effect">7</button>
-                      <button type="button" value="8" class="btn btn-light waves-effect">8</button>
-                      <button type="button" value="9" class="btn btn-light waves-effect">9</button>
-                
-                
-                      <button type="button" value="4" class="btn btn-light waves-effect">4</button>
-                      <button type="button" value="5" class="btn btn-light waves-effect">5</button>
-                      <button type="button" value="6" class="btn btn-light waves-effect">6</button>
-                
-                
-                      <button type="button" value="1" class="btn btn-light waves-effect">1</button>
-                      <button type="button" value="2" class="btn btn-light waves-effect">2</button>
-                      <button type="button" value="3" class="btn btn-light waves-effect">3</button>
-                
-                
-                      <button type="button" value="0" class="btn btn-light waves-effect">0</button>
-                      <button type="button" class="decimal function btn btn-secondary" value=".">.</button>
-                      
-                
-                      <button type="button" class="equal-sign operator btn btn-default" value="=">=</button>
-                
-                    </div>
-                  </div>
-              </div>  
+                <input type="text" class="calculator-screen z-depth-1" value="" disabled />
+
+                <div class="calculator-keys">
+
+                    <button type="button" class="percent function btn btn-info" value="percent">%</button>
+                    <button type="button" class="sqrt function btn btn-info" value="sqrt">&radic;</button>
+                    <button type="button" class="sqr function btn btn-info" value="sqr">x^n</button>
+                    <button type="button" class="fraction function btn btn-info" value="fraction">1/x</button>
+
+                    <button type="button" class="all-clear function btn-danger btn-sm" value="all-clear">AC</button>
+                    <button type="button" class="clean function btn-danger" value="clean">C</button>
+                    <button type="button" class="delete function btn-danger" value="delete">&larr;</button>
+                    
+                    <button type="button" class="operator btn btn-info" value="/">&divide;</button>
+
+                    <button type="button" value="7" class="btn btn-light waves-effect">7</button>
+                    <button type="button" value="8" class="btn btn-light waves-effect">8</button>
+                    <button type="button" value="9" class="btn btn-light waves-effect">9</button>
+                    <button type="button" class="operator btn btn-info" value="*">&times;</button>
+
+                    <button type="button" value="4" class="btn btn-light waves-effect">4</button>
+                    <button type="button" value="5" class="btn btn-light waves-effect">5</button>
+                    <button type="button" value="6" class="btn btn-light waves-effect">6</button>
+                    <button type="button" class="operator btn btn-info" value="-">-</button>
+
+                    <button type="button" value="1" class="btn btn-light waves-effect">1</button>
+                    <button type="button" value="2" class="btn btn-light waves-effect">2</button>
+                    <button type="button" value="3" class="btn btn-light waves-effect">3</button>
+                    <button type="button" class="operator btn btn-info" value="+">+</button>
+
+                    <button type="button" class="plusmn function btn btn-secondary" value=".">&plusmn;</button>
+                    <button type="button" value="0" class="btn btn-light waves-effect">0</button>
+                    <button type="button" class="decimal function btn btn-secondary" value=".">.</button>
+                    
+                    <button type="button" class="operator-equal-sign btn btn-default" value="/">=</button>
+
+
+
+
+
+                </div>
+            </div>
         </div>
-    </main> 
+        </div>
+    </main>
 </body>
+
 </html>
