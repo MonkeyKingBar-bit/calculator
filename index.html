@@ -4,12 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="style.css">
+    <title>Calculator</title>
+    <link href="style.css" rel="stylesheet" >
+    <script src="script.js" defer></script>
     <!--Bootstrap CSS-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <title>Calculator</title>
-    <script src="script.js" defer></script>
+    
+    
 </head>
 
 <body>
@@ -24,37 +26,37 @@
                 
                 <div class="calculator-keys">
 
-                    <button class="data-operation btn btn-info" value="percent">%</button>
-                    <button class="data-operation btn btn-info" value="sqrt">&radic;</button>
-                    <button class="data-operation btn btn-info" value="sqr">x^y</button>
-                    <button class="data-operation btn btn-info" value="fraction">x/y</button>
+                    <button data-operation-percent class="btn btn-info" value="percent">%</button>
+                    <button data-operation-sqrt class="operation btn btn-info" value="sqrt">√</button>
+                    <button data-operation-power class="operation btn btn-info" value="power">**</button>
+                    <button data-operation-fraction class="operation btn btn-info" value="fraction">1/x</button>
 
-                    <button class="data-all-clear btn-danger btn-sm" value="all-clear">AC</button>
-                    <button class="data-clear btn-danger" value="clean">C</button>
-                    <button class="data-delete btn-danger" value="delete">&larr;</button>
+                    <button data-all-clear class="btn-danger btn-sm" value="all-clear">AC</button>
+                    <button data-clean class="btn-danger" value="clean">C</button>
+                    <button data-delete class="btn-danger" value="delete">&larr;</button>
                     
-                    <button class="data-operation btn btn-info" value="/">&divide;</button>
+                    <button data-operation class="btn btn-info" value="/">/</button>
 
-                    <button value="7" class="data-number btn btn-light waves-effect">7</button>
-                    <button value="8" class="data-number btn btn-light waves-effect">8</button>
-                    <button value="9" class="data-number btn btn-light waves-effect">9</button>
-                    <button class="data-operation btn btn-info" value="*">&times;</button>
+                    <button data-number class="btn btn-light waves-effect" value="7">7</button>
+                    <button data-number class="data-number btn btn-light waves-effect" value="8">8</button>
+                    <button data-number class="data-number btn btn-light waves-effect" value="9">9</button>
+                    <button data-operation class="btn btn-info" value="*">*</button>
 
-                    <button value="4" class="data-number btn btn-light waves-effect">4</button>
-                    <button value="5" class="data-number btn btn-light waves-effect">5</button>
-                    <button value="6" class="data-number btn btn-light waves-effect">6</button>
-                    <button class="data-operation btn btn-info" value="-">-</button>
+                    <button data-number class=" btn btn-light waves-effect" value="4">4</button>
+                    <button data-number class="data-number btn btn-light waves-effect" value="5">5</button>
+                    <button data-number class=" btn btn-light waves-effect" value="6">6</button>
+                    <button data-operation class="btn btn-info" value="-">-</button>
 
-                    <button value="1" class="data-number btn btn-light waves-effect">1</button>
-                    <button value="2" class="data-number btn btn-light waves-effect">2</button>
-                    <button value="3" class="data-number btn btn-light waves-effect">3</button>
-                    <button class="data-operation btn btn-info" value="+">+</button>
+                    <button data-number class="btn btn-light waves-effect" value="1">1</button>
+                    <button data-number class="data-number btn btn-light waves-effect" value="2">2</button>
+                    <button data-number class="data-number btn btn-light waves-effect" value="3">3</button>
+                    <button data-operation class="btn btn-info" value="+">+</button>
 
-                    <button class="data-number btn btn-secondary" value="plusmn">&plusmn;</button>
-                    <button value="0" class="data-number btn btn-light waves-effect">0</button>
-                    <button class="data-number btn btn-secondary" value=".">.</button>
+                    <button data-number class="btn btn-secondary" value="plusmn">&plusmn;</button>
+                    <button data-number class="data-number btn btn-light waves-effect" value="0">0</button>
+                    <button data-number class="btn btn-secondary" value=".">.</button>
                     
-                    <button class="data-equals btn btn-default" value="=">=</button>
+                    <button data-equals class="btn btn-default" value="=">=</button>
 
                 </div>
             </div>
