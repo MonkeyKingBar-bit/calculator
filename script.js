@@ -5,6 +5,11 @@ class Calculator {
         this.allClear();
         this.clear();
         this.delete();
+        this.appendNumber();
+        this.chooseOperation();
+        this.compute();
+        this.getDisplayNumber();
+        this.updateDisplay();
     }
 
     allClear() {
@@ -65,7 +70,10 @@ class Calculator {
                 break;
             case '&divide;':
                 computation = prev / curr;
-                break;  
+                break;
+            case '&plusmn;':
+                computation = -(curr);
+                break;
             default:
                 return;
         }
@@ -74,13 +82,36 @@ class Calculator {
         this.previousOperand = '';
     }
 
+    getDisplayNumber(number) {
+        const stringNumber = number.toString();
+        const integerDigits = parseFloat(stringNumber.split('.')[0]);
+        const decimalDigits = stringNumber.split('.'[1]);
+        let integerDisplay;
+        if (isNaN(integerDigits)) {
+            integerDigits = ''
+        } else {
+            integerDisplay = integerDigits.toLocaleString('en', {maximumFractionDigits: 0 });
+        }
+        if (isNaN(decimalDigits)) {
+            return `$(integerDisplay).$(decimalDigits)`
+        } else {
+            return integerDisplay
+        }
+    }
+
     updateDisplay() {
-        this.currentOperandTextElement.innerText = this.currentOperand;
-        this.previousOperandTextElement.innerText = this.previousOperand;
+        this.currentOperandTextElement.innerText = 
+            this.getDisplayNumber(this.currentOperand);
+        if (this.operation != null) {
+            this.previousOperandTextElement.innerText = 
+                `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`
+        } else {
+            this.previousOperandTextElement = '';
+        }
     }
 
 }
-const numberButtons = document.querySelectorAll('[data-number]');
+const numberButtons = document.querySelectorAll('[data-number btn btn-light waves-effect]');
 const operationButtons = document.querySelectorAll('[data-operation]');
 const equalsButton = document.querySelector(['data-equals']);
 
@@ -126,6 +157,3 @@ deleteButton.addEventListener('click', () => {
     calculator.delete();
     calculator.updateDisplay();
 })
-
-
-
