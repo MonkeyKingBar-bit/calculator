@@ -36,10 +36,13 @@ class Calculator {
         this.currentOperand = '';
     }
 
-    sqrt() {
+    sqrt() { 
+        if (this.currentOperand < '0')  {
+            this.currentOperand = 'ERROR';
+            return;
+        }
         const current = parseFloat(this.currentOperand);
         if (isNaN(current)) return;
-        if (current < 0) throw new Error();
         this.currentOperand = Math.sqrt(current);
         this.readyToReset = true;
     }
@@ -47,7 +50,10 @@ class Calculator {
     fraction() {
         const current = parseFloat(this.currentOperand);
         if (isNaN(current)) return;
-        if (current == 0) throw new Error();
+        if (current == 0) {
+            this.currentOperand = 'ERROR';
+            return;
+        }
         this.currentOperand = (1 / current);
         this.readyToReset = true;
     }
@@ -86,7 +92,7 @@ class Calculator {
                 return;
         }
         this.readyToReset = true;
-        this.currentOperand = +computation.toFixed(12);
+        this.currentOperand = +computation.toFixed(2);
         this.operation = undefined;
         this.previousOperand = '';
     }
@@ -109,6 +115,10 @@ class Calculator {
     }
 
     updateDisplay() {
+        if (this.currentOperand === "ERROR") {
+            this.currentOperandTextElement.innerText = "ERROR";
+            return;
+        }
         this.currentOperandTextElement.innerText =
             this.getDisplayNumber(this.currentOperand)
         if (this.operation != null) {
