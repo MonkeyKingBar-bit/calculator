@@ -38,21 +38,23 @@ class Calculator {
 
     sqrt() {
         const current = parseFloat(this.currentOperand);
-        if (isNaN(current) || current < 0) return this.currentOperand = '';
+        if (isNaN(current)) return;
+        if (current < 0) throw new Error();
         this.currentOperand = Math.sqrt(current);
         this.readyToReset = true;
     }
 
     fraction() {
         const current = parseFloat(this.currentOperand);
-        if (isNaN(current) || current == 0) return this.currentOperand = '';
+        if (isNaN(current)) return;
+        if (current == 0) throw new Error();
         this.currentOperand = (1 / current);
         this.readyToReset = true;
     }
 
     sign() {
         const current = parseFloat(this.currentOperand);
-        if (isNaN(current) || current == 0) return this.currentOperand = '';
+        if (isNaN(current)) return this.currentOperand = '';
         this.currentOperand *= -1;
     }
 
