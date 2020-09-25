@@ -92,7 +92,7 @@ class Calculator {
                 return;
         }
         this.readyToReset = true;
-        this.currentOperand = +computation.toFixed(2);
+        this.currentOperand = +computation.toFixed(12);
         this.operation = undefined;
         this.previousOperand = '';
     }
