@@ -36,25 +36,25 @@ class Calculator {
         this.currentOperand = '';
     }
 
-    percent() { // ! DON'T WORK
-        const prev = parseFloat(this.previousOperand);
-        const current = parseFloat(this.currentOperand);
-        if (isNaN(prev) || isNaN(current)) return;
-        this.currentOperand = prev * (current / 100);
-        this.readyToReset = true;
-        this.previousOperand = '';
-    }
-
     sqrt() {
         const current = parseFloat(this.currentOperand);
-        if (isNaN(current)) return;
-        this.currentOperand = Math.sqrt(Math.abs(current));
+        if (isNaN(current) || current < 0) return this.currentOperand = '';
+        this.currentOperand = Math.sqrt(current);
         this.readyToReset = true;
     }
 
-    
+    fraction() {
+        const current = parseFloat(this.currentOperand);
+        if (isNaN(current) || current == 0) return this.currentOperand = '';
+        this.currentOperand = (1 / current);
+        this.readyToReset = true;
+    }
 
-    
+    sign() {
+        const current = parseFloat(this.currentOperand);
+        if (isNaN(current) || current == 0) return this.currentOperand = '';
+        this.currentOperand *= -1;
+    }
 
     compute() {
         let computation;
@@ -62,6 +62,12 @@ class Calculator {
         const current = parseFloat(this.currentOperand);
         if (isNaN(prev) || isNaN(current)) return;
         switch (this.operation) {
+            case '%':
+                computation = (prev * current) / 100;
+                break;
+            case '^':
+                computation = Math.pow(prev, current);
+                break;
             case '+':
                 computation = prev + current;
                 break;
@@ -74,29 +80,27 @@ class Calculator {
             case '/':
                 computation = prev / current;
                 break;
-            case '**':
-                computation = prev ** current;
             default:
                 return;
         }
         this.readyToReset = true;
-        this.currentOperand = computation;
+        this.currentOperand = +computation.toFixed(12);
         this.operation = undefined;
         this.previousOperand = '';
     }
 
     getDisplayNumber(number) {
         const stringNumber = number.toString()
-        const integerDigits = parseFloat(stringNumber.split('.')[0])
-        const decimalDigits = stringNumber.split('.')[1]
-        let integerDisplay
+        const integerDigits = parseFloat(stringNumber.split('.')[0]);
+        const decimalDigits = (stringNumber.split('.')[1]);
+        let integerDisplay;
         if (isNaN(integerDigits)) {
             integerDisplay = ''
         } else {
             integerDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits: 0 })
         }
         if (decimalDigits != null) {
-            return `${integerDisplay}.${decimalDigits}`
+            return `${integerDisplay}.${decimalDigits}`;
         } else {
             return integerDisplay;
         }
@@ -118,12 +122,10 @@ class Calculator {
 const numberButtons = document.querySelectorAll('[data-number]');
 
 const operationButtons = document.querySelectorAll('[data-operation]');
-
-const percentButton = document.querySelector('[data-operation-percent]'); // ! DON'T WORK
 const sqrtButton = document.querySelector('[data-operation-sqrt]');
-
 const fractionButton = document.querySelector('[data-operation-fraction');
 
+const signButton = document.querySelector('[data-number-sign]');
 const equalsButton = document.querySelector('[data-equals]');
 
 const allClearButton = document.querySelector('[data-all-clear]');
@@ -138,7 +140,6 @@ const calculator = new Calculator(previousOperandTextElement, currentOperandText
 
 numberButtons.forEach(button => {
     button.addEventListener("click", () => {
-
         if (calculator.previousOperand === "" && calculator.currentOperand !== "" && calculator.readyToReset) {
             calculator.currentOperand = "";
             calculator.readyToReset = false;
@@ -155,20 +156,23 @@ operationButtons.forEach(button => {
     })
 })
 
-percentButton.addEventListener('click', button => {
-    calculator.percent();
-    calculator.updateDisplay();
-})
-
 sqrtButton.addEventListener('click', button => {
     calculator.sqrt();
     calculator.updateDisplay();
 })
 
-
+fractionButton.addEventListener('click', button => {
+    calculator.fraction();
+    calculator.updateDisplay();
+})
 
 equalsButton.addEventListener('click', button => {
     calculator.compute();
+    calculator.updateDisplay();
+})
+
+signButton.addEventListener('click', button => {
+    calculator.sign();
     calculator.updateDisplay();
 })
 
